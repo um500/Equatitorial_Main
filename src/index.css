@@ -1,0 +1,176 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Equatorial IT Services - Clean Light Theme */
+
+@layer base {
+  :root {
+    /* Cyber-duck inspired dark teal theme */
+    --background: 192 25% 18%;
+    --foreground: 180 10% 95%;
+
+    --card: 192 30% 22%;
+    --card-foreground: 180 10% 95%;
+
+    --popover: 192 30% 20%;
+    --popover-foreground: 180 10% 95%;
+
+    /* Warm orange accent */
+    --primary: 25 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 192 20% 28%;
+    --secondary-foreground: 180 10% 90%;
+
+    --muted: 192 20% 25%;
+    --muted-foreground: 180 10% 65%;
+
+    /* Teal accent */
+    --accent: 175 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 192 20% 30%;
+    --input: 192 25% 25%;
+    --ring: 25 85% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom */
+    --glass-bg: 192 30% 22% / 0.95;
+    --glass-border: 192 20% 35%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    background: hsl(192 25% 18%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-xl border shadow-sm;
+    background: hsl(192 30% 22%);
+    border-color: hsl(192 20% 30%);
+    backdrop-filter: blur(10px);
+  }
+
+  .section {
+    @apply py-12 md:py-20 lg:py-24;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-3 md:mb-4 text-foreground;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground max-w-2xl text-sm md:text-base;
+  }
+
+  .service-card {
+    @apply glass-card p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    border-color: hsl(192 20% 35%);
+  }
+
+  .service-card:hover {
+    border-color: hsl(25 85% 55%);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-md font-medium transition-all duration-300 shadow-md;
+    background: linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(20 80% 50%) 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    @apply shadow-lg;
+    background: linear-gradient(135deg, hsl(25 85% 60%) 0%, hsl(20 80% 55%) 100%);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-md font-medium border-2 transition-all duration-300;
+    border-color: hsl(25 85% 55%);
+    color: hsl(25 85% 55%);
+  }
+
+  .btn-outline:hover {
+    background: hsl(25 85% 55%);
+    color: white;
+  }
+
+  .floating-btn {
+    @apply fixed z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110;
+  }
+
+  .nav-link {
+    @apply px-3 py-2 transition-colors duration-300 text-sm;
+    color: hsl(180 10% 70%);
+  }
+
+  .nav-link:hover {
+    color: hsl(25 85% 55%);
+  }
+
+  .nav-link.active {
+    color: hsl(25 85% 55%);
+    font-weight: 500;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-md border outline-none transition-all duration-300;
+    background: hsl(192 25% 22%);
+    border-color: hsl(192 20% 30%);
+    color: hsl(180 10% 95%);
+  }
+
+  .input-field::placeholder {
+    color: hsl(180 10% 50%);
+  }
+
+  .input-field:focus {
+    border-color: hsl(25 85% 55%);
+    box-shadow: 0 0 0 3px hsl(25 85% 55% / 0.2);
+  }
+
+  .bg-grid {
+    background-image: 
+      linear-gradient(to right, hsl(192 20% 25% / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(192 20% 25% / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(25 85% 55%) 0%, hsl(35 90% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
